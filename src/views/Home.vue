@@ -12,8 +12,6 @@ export default {
   name: 'Home',
   components: {
     ProductsList
-  }
+  },
 }
 </script>
-
-    ProductsList

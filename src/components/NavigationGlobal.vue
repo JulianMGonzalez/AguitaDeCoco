@@ -67,7 +67,7 @@
         </v-btn>
         <v-divider vertical></v-divider>
         <v-btn small icon to="/carrito">
-          <v-badge :content="messages" :value="messages" color="green" overlap>
+          <v-badge :content="count" :value="count" color="green" overlap>
             <v-icon color="primary" small> mdi-cart-outline </v-icon>
           </v-badge>
         </v-btn>
@@ -79,8 +79,8 @@
 <script>
 export default {
   data: () => ({
+    count: 0,
     sideNav: false,
-    messages: 1,
     menuItems: [
       {
         icon: "mdi-forum",
@@ -112,7 +112,19 @@ export default {
       },
     ],
   }),
-  methods: {},
+  created() {
+    this.countProductos();
+  },
+  methods: {
+    countProductos() {
+      if (JSON.parse(localStorage.getItem("products"))) {
+        let tienda = JSON.parse(localStorage.getItem("products"));
+        for (let i = 0; i < tienda.length; i++) {
+          this.count = this.count + 1
+        }
+      }
+    },
+  },
 };
 </script>
 <style scoped>
