@@ -1,32 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-main>
+      <navigation-global></navigation-global>
+      <router-view />
+      <global-tool></global-tool>
+      <footer-global></footer-global>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import NavigationGlobal from '@/components/NavigationGlobal.vue';
+import FooterGlobal from './components/FooterGlobal.vue';
+import GlobalTool from './components/GlobalTool.vue';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    NavigationGlobal,
+    FooterGlobal,
+    GlobalTool
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
